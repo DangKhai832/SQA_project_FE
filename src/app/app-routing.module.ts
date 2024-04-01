@@ -22,10 +22,10 @@ const routes: Routes = [
     path : 'loanPayment',
     component : SearchLoanPaymentComponent
   },
-  {
-    path : 'loanList',
-    component : SearchLoanPaymentComponent
-  },
+  // {
+  //   path: 'loanList/:id',
+  //   component: LoanListComponent
+  // }
 ];
 
 @NgModule({

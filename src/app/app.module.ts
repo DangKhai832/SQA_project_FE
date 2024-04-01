@@ -23,6 +23,7 @@ import {SearchLoanPaymentComponent} from "./components/searchLoanPayment/searchL
     HomeComponent,
     SearchLoanComponent,
     SearchLoanPaymentComponent,
+    // LoanListComponent
   ],
   imports: [
     BrowserModule,
