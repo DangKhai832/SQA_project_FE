@@ -21,8 +21,14 @@ body {
   min-height: 100vh; /* Chiều cao tối thiểu là 100% của viewport */
 }
 
+.required {
+  color: red;
+  margin-left: 5px; /* Điều chỉnh khoảng cách giữa nhãn và ngôi sao */
+}
+
 .buttons span {
-  font-size: 20px; /* Điều chỉnh kích thước phù hợp */
+  font-size: 25px; /* Điều chỉnh kích thước phù hợp */
+  padding: 35px; /* Khoảng cách bên phải giữa các span */
 }
 
 

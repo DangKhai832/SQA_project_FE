@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng kí tài khoản</title>
+</head>
+<body>
+<div class="background">
+  <header class="header-container">
+    <div class="logo">
+      <img class="text-primary" src="src/app/image">
+    </div>
+    <div class="buttons">
+      <span routerLink="/register">Đăng kí tài khoản</span>
+      <span routerLink="/searchLoan">Đăng kí khoản vay</span>
+      <span routerLink="/loanPayment">Thanh toán tiền lãi</span>
+    </div>
+    <div class="user">
+      <button class="logout-button p-button p-button-icon-only">
+        <i class="pi pi-power-off" style="font-size: 40px !important;"></i>
+      </button>
+      <img src="app/image/logo.jpg" alt="Avatar" class="avatar">
+    </div>
+  </header>
+
+  <h2 class="text-center">Tìm kiếm tài khoản khách hàng</h2>
+  <div class="search-bar">
+    <input type="text" placeholder="Nhập tên khách hàng...">
+    <button class="search-button btn btn-danger">Tìm kiếm</button>
+  </div>
+
+
+  <div class="p-grid p-justify-center">
+    <div class="p-col-10">
+      <div class="table-container">
+        <table class="custom-table">
+          <!-- Header của bảng -->
+          <thead>
+          <tr>
+            <th style="text-align: center;">STK</th>
+            <th style="text-align: center;">Họ và tên</th>
+            <th style="text-align: center;">Ngày sinh</th>
+            <th style="text-align: center;">Quê quán</th>
+            <th style="text-align: center;">Actions</th>
+          </tr>
+          </thead>
+          <!-- Body của bảng -->
+          <tbody>
+          <tr *ngFor="let customer of customers">
+            <td style="text-align: center;">{{customer.id}}</td>
+            <td>{{customer.fullName}}</td>
+            <td style="text-align: center;">{{ customer.dob | date :'dd/MM/yyyy' }}</td>
+            <td>{{customer.district}}, {{customer.province}}, {{customer.city}}</td>
+            <td style="text-align: center">
+              <button pButton type="button">
+                <i class="pi pi-eye" style="margin-right: 5px;"></i>
+                View
+              </button>
+              <button pButton type="button" label="DS khoản vay" (click)="searchLoanList(customer.id)"></button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!--<div class="list-model body-content p-6">-->
+<!--  <div class="list-btn d-flex justify-content-center align-item-center">-->
+<!--    <h2 class="me-auto">{{'list_items'|translate}}</h2>-->
+<!--    <p-overlayPanel #op [style]="{'width': '200px'}">-->
+<!--      <ng-template pTemplate="content">-->
+<!--        <div class="row p-checker">-->
+<!--          <span style="flex: 1">-->
+<!--            <p-checkbox (click)="updateChecker('check-all')" [value]="true" [(ngModel)]="checkAll"   [binary]="true"></p-checkbox>-->
+<!--          </span>-->
+<!--          <span class="title">{{'common.btn.checkAll' | translate }}</span>-->
+<!--        </div>-->
+<!--        <div class="row p-checker" *ngFor="let item of selectedItems">-->
+<!--          <span style="flex: 1">-->
+<!--            <p-checkbox (click)="updateChecker('')" [binary]="true" [value]="item.isShow" inputId="ny" [(ngModel)]="item.isShow"></p-checkbox>-->
+<!--          </span>-->
+<!--          <span class="title" >{{item.name}}</span>-->
+<!--        </div>-->
+<!--      </ng-template>-->
+<!--    </p-overlayPanel>-->
+<!--    <span *ngIf="selectedData.length > 0" class="{{!isAcceptBtn?.isDelete ? 'disabled' : ''}}">-->
+<!--      <i (click)="deleteCatalog('')" class="pi pi-trash" style="font-size: 1.4rem;color: #EF3948" [pTooltip]="'common.btn.delete-all-selected-records'|translate" tooltipPosition="bottom"></i>-->
+<!--    </span>-->
+<!--    <button href="#" class="btn_grid m-0"-->
+<!--            (click)="reload()"-->
+<!--            pTooltip="{{'common.label.refresh' | translate}}" tooltipPosition="top"><i-->
+<!--      class="pi pi-refresh"></i></button>-->
+<!--    <span (click)="op.toggle($event)" [pTooltip]="'common.label.config'|translate" tooltipPosition="top" ><i class="pi pi-cog" style="font-size: 1.4rem"></i></span>-->
+<!--    <button (click)="importFile()" class="btn btn-outline" pTooltip="{{'common.btn.import' | translate}}"-->
+<!--            tooltipPosition="top"><img src="assets/icon/download-import.svg" alt="">{{"common.btn.import"|translate}}-->
+<!--    </button>-->
+<!--    <button (click)="importFileImg()" class="btn btn-outline" pTooltip="{{'common.btn.import-img' | translate}}"-->
+<!--            tooltipPosition="top"><img src="assets/icon/download-import.svg" alt="">{{"common.btn.import-img"|translate}}-->
+<!--    </button>-->
+<!--    <p-button (click)="addNew()" icon="pi pi-plus" label="{{'common.btn.add-new' | translate}}" [pTooltip]="'common.btn.add-new'| translate" tooltipPosition="bottom"></p-button>-->
+<!--  </div>-->
+<!--  <div class="filter-container mb-3 d-flex align-items-center ">-->
+<!--    <button (click)="handleShowFilter()" class="btn btn-outline p-button-filter me-5 ">-->
+<!--      <i class="pi pi-filter me-2"></i>-->
+<!--      <span class="" >View</span>-->
+<!--    </button>-->
+<!--    <div class="current-view me-5 ">-->
+<!--      <span style="color: #6E6B7B;" class="">CURRENT VIEW: {{filterName}} </span>-->
+<!--    </div>-->
+<!--    <button style="background-color: #ECECEC;" (click)="handleSaveFilter()" class="btn btn-outline btn-save-as me-2 ">-->
+<!--      <span class="" >Save view as</span>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; <app-filter-view></app-filter-view> &ndash;&gt;-->
+<!--  <p-table [value]="dataTable" [(selection)]="selectedData" class="vt-table mt-5" [scrollable]="true" scrollHeight="78vh">-->
+<!--    <ng-template pTemplate="header">-->
+<!--      <tr>-->
+<!--        <th style="min-width: 72px">-->
+<!--          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>-->
+<!--        </th>-->
+<!--        <th style="min-width:112px" >{{'site-info.action'|translate}}</th>-->
+<!--        <th *ngIf="selectedItems[0].isShow" style="min-width:240px">-->
+<!--          <div>-->
+<!--            <label>{{'model_library.form.manufacturer'|translate}}</label>-->
+<!--            <p-sortIcon pSortableColumn="manuFacturerName" field="manuFacturerName"></p-sortIcon>-->
+<!--          </div>-->
+<!--          <span class="p-input-icon-left w-100">-->
+<!--            <i (click)="onSearch()" class="pi pi-search" style="font-size: 1rem; margin-left: 0.5rem"></i>-->
+<!--            <input type="text" pInputText [placeholder]="'common.form.hindSearch' |translate" [(ngModel)]="dataSearch.manuFacturer" (keyup.enter)="onSearch()"-->
+<!--                   [style]="{'width': '100%'}" />-->
+<!--          </span>-->
+<!--        </th>-->
+<!--        <th *ngIf="selectedItems[1].isShow" style="min-width:240px">-->
+<!--          <div>-->
+<!--            <label>{{'model_library.form.model'|translate}}</label>-->
+<!--          </div>-->
+<!--          <span class="p-input-icon-left w-100">-->
+<!--            <i (click)="onSearch()" class="pi pi-search" style="font-size: 1rem;margin-left: 0.5rem"></i>-->
+<!--            <input type="text" pInputText [placeholder]="'common.form.hindSearch' |translate" [(ngModel)]="dataSearch.model" (keyup.enter)="onSearch()"-->
+<!--                   [style]="{'width': '100%'}" />-->
+<!--          </span>-->
+<!--        </th>-->
+<!--        <th *ngIf="selectedItems[2].isShow" style="min-width:240px">-->
+<!--          <div>-->
+<!--            <label>{{'model_library.form.class'|translate}}</label>-->
+<!--          </div>-->
+<!--          &lt;!&ndash; <p-dropdown class="select_class" appendTo="body" [options]="listClass" [(ngModel)]="dataSearch.classCode" (onChange)="searchModel()" optionLabel="name" optionValue="code" [showClear]="true" [placeholder]="'common.form.hindSelect' |translate"></p-dropdown> &ndash;&gt;-->
+<!--          <p-autoComplete appendTo="body" [forceSelection]="true" [showClear]="true" [dropdown]="true" [suggestions]="listClass" [(ngModel)]="dataSearch.class" (completeMethod)="searchClass($event)" (onSelect)="selectClass('select')" (onClear)="selectClass('un-select')" field="name" [placeholder]="'common.form.hindSearch' | translate">-->
+<!--            <ng-template let-listClass pTemplate="item">-->
+<!--              <div class="flex align-items-center gap-2" style="width: 150px">-->
+<!--                <div class="truncate-text" [pTooltip]="listClass.name" tooltipPosition="bottom">{{ listClass.name }}</div>-->
+<!--              </div>-->
+<!--            </ng-template>-->
+<!--          </p-autoComplete>-->
+<!--        </th>-->
+<!--        <th *ngIf="selectedItems[3].isShow" style="min-width:240px">-->
+<!--          <div>-->
+<!--            <label>{{'model_library.form.sub_class'|translate}}</label>-->
+<!--          </div>-->
+<!--          <p-autoComplete appendTo="body" [forceSelection]="true" [showClear]="true" [dropdown]="true" [suggestions]="listSubClass" [(ngModel)]="dataSearch.subclass" (completeMethod)="searchSubClass($event)" (onSelect)="selectSubClass('select')" (onClear)="selectSubClass('un-select')" field="name" [placeholder]="'common.form.hindSearch' |translate"></p-autoComplete>-->
+<!--        </th>-->
+<!--        <th *ngIf="selectedItems[4].isShow" style="min-width:240px">-->
+<!--          <div>-->
+<!--            <label>{{'model_library.form.item_code'|translate}}</label>-->
+<!--          </div>-->
+<!--          <span class="p-input-icon-left w-100">-->
+<!--            <i (click)="onSearch()" class="pi pi-search" style="font-size: 1rem; margin-left: 0.5rem"></i>-->
+<!--            <input type="text" pInputText [placeholder]="'common.form.hindSearch' |translate" [(ngModel)]="dataSearch.code" (keyup.enter)="onSearch()"-->
+<!--                   [style]="{'width': '100%'}" />-->
+<!--          </span>-->
+<!--        </th>-->
+<!--        <th *ngIf="selectedItems[5].isShow" style="min-width:240px">-->
+<!--          <div>-->
+<!--            <label>{{'model_library.form.item_name'|translate}}</label>-->
+<!--          </div>-->
+<!--          <span class="p-input-icon-left w-100">-->
+<!--            <i (click)="onSearch()" class="pi pi-search" style="font-size: 1rem; margin-left: 0.5rem"></i>-->
+<!--            <input type="text" pInputText [placeholder]="'common.form.hindSearch' |translate" [(ngModel)]="dataSearch.name" (keyup.enter)="onSearch()"-->
+<!--                   [style]="{'width': '100%'}" />-->
+<!--          </span>-->
+<!--        </th>-->
+<!--        <th *ngIf="selectedItems[6].isShow" style="min-width:240px">-->
+<!--          <div>-->
+<!--            <label>{{'model_library.form.creator'|translate}}</label>-->
+<!--          </div>-->
+<!--          <span class="p-input-icon-left w-100">-->
+<!--            <i (click)="onSearch()" class="pi pi-search" style="font-size: 1rem; margin-left: 0.5rem"></i>-->
+<!--            <input type="text" pInputText [placeholder]="'common.form.hindSearch' |translate" [(ngModel)]="dataSearch.createdBy" (keyup.enter)="onSearch()"-->
+<!--                   [style]="{'width': '100%'}" />-->
+<!--          </span>-->
+<!--        </th>-->
+<!--        <th *ngIf="selectedItems[7].isShow" pSortableColumn="updatedAt" style="min-width:240px">{{'model_library.form.update'|translate}} <p-sortIcon field="updatedAt"></p-sortIcon></th>-->
+<!--      </tr>-->
+<!--    </ng-template>-->
+<!--    <ng-template pTemplate="body" let-product>-->
+<!--      <tr>-->
+<!--        <td class="text-center">-->
+<!--          <p-tableCheckbox [value]="product"></p-tableCheckbox>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--          <div class="btn-action">-->
+<!--            <button class="{{!isAcceptBtn?.isUpdate ? 'disabled' : ''}}" (click)="openUpdate(product)" [pTooltip]="'common.btn.update'| translate" tooltipPosition="bottom" ><img class="text-primary" src="assets/icon/icon-edit-primary.svg"></button>-->
+<!--            <button class="{{!isAcceptBtn?.isDelete ? 'disabled' : ''}}" (click)="deleteCatalog(product) " [pTooltip]="'common.btn.delete'| translate" tooltipPosition="bottom" ><i class="pi pi-trash text-danger" style="font-size: 1.4rem"></i></button>-->
+<!--          </div>-->
+<!--        </td>-->
+<!--        <td *ngIf="selectedItems[0].isShow">{{product.manuFacturerName}}</td>-->
+<!--        <td *ngIf="selectedItems[1].isShow">{{product.model}}</td>-->
+<!--        <td *ngIf="selectedItems[2].isShow">{{product.assetClassName}}</td>-->
+<!--        <td *ngIf="selectedItems[3].isShow">{{product.subclassName}}</td>-->
+<!--        <td *ngIf="selectedItems[4].isShow" class="text-primary"  (click)="openDetail(product)" class="{{!isAcceptBtn?.isViewDetail ? 'disabled' : ''}}">-->
+<!--          <span>-->
+<!--            {{product.code}}-->
+<!--          </span>-->
+<!--        </td>-->
+<!--        <td *ngIf="selectedItems[5].isShow">{{product.name}}</td>-->
+<!--        <td *ngIf="selectedItems[6].isShow">-->
+<!--          <img class="img-crator" src="assets/media/avatars/300-1.jpg"> {{product.createdBy}}-->
+<!--        </td>-->
+<!--        <td *ngIf="selectedItems[7].isShow">{{product.updatedAt}}</td>-->
+<!--      </tr>-->
+<!--    </ng-template>-->
+<!--  </p-table>-->
+<!--  <div class="w-100 no-data" *ngIf="dataTable.length == 0">-->
+<!--    <img src="assets/images/Search-Empty.png" alt="">-->
+<!--    <label>{{"site.no-results" | translate}}</label>-->
+<!--    <span>{{"site.enter-a-defferent" | translate}}</span>-->
+<!--  </div>-->
+<!--  <app-vt-paginator *ngIf="totalElement" [totalItem]="totalElement" [pageSize]="pageSize"-->
+<!--                    (pageChange)="onPageChange($event)"></app-vt-paginator>-->
+<!--</div>-->
+
+
+<!--<div *ngIf="showCreate">-->
+<!--  <app-create-update-model-library [(visible)]="showCreate" (reload)="searchModel()"></app-create-update-model-library>-->
+<!--</div>-->
+
+<!--<div *ngIf="showUpdate">-->
+<!--  <app-create-update-model-library [(visible)]="showUpdate" [id]="this.idCatalog" (reload)="searchModel()"></app-create-update-model-library>-->
+<!--</div>-->
+
+<!--<div *ngIf="showPopupImport">-->
+<!--  <app-import-catalog [(visible)]="showPopupImport"></app-import-catalog>-->
+<!--</div>-->
+<!--<div *ngIf="showPopupImportImg">-->
+<!--  <app-import-catalog-img [(visible)]="showPopupImportImg"></app-import-catalog-img>-->
+<!--</div>-->

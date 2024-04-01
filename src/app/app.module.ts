@@ -11,14 +11,18 @@ import { AppComponent } from './app.component';
 import {RegisterComponent} from "./components/register/register.component";
 import {HomeComponent} from "./components/home/home.component";
 import {DropdownModule} from "primeng/dropdown";
-import {CreateLoanComponent} from "./components/createLoan/createLoan.component";
+import {SearchLoanComponent} from "./components/searchLoan/searchLoan.component";
+import {TableModule} from "primeng/table";
+import {ButtonModule} from "primeng/button";
+import {SearchLoanPaymentComponent} from "./components/searchLoanPayment/searchLoanPayment.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     HomeComponent,
-    CreateLoanComponent,
+    SearchLoanComponent,
+    SearchLoanPaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +33,8 @@ import {CreateLoanComponent} from "./components/createLoan/createLoan.component"
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     DropdownModule,
+    TableModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

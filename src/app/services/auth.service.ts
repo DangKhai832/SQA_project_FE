@@ -9,8 +9,16 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  baseServerUrl = "https://localhost:7019/api/"
+  baseServerUrl = "http://103.163.215.125/sqa/api/"
   login: TaiKhoan = new TaiKhoan
+
+  createCustomer(body : object) {
+    return this.http.post(this.baseServerUrl + "customer/create", body, {responseType : "json"})
+  }
+
+  searchCustomer(key : String) {
+    return this.http.get(this.baseServerUrl + "customer/search?key=" + key, {responseType : "json"})
+  }
 
   registerUser(user: Array<string>){
     return this.http.post(this.baseServerUrl + "User/CreateUser", {

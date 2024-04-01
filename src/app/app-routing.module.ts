@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {RegisterComponent} from "./components/register/register.component";
 import {HomeComponent} from "./components/home/home.component";
-import {CreateLoanComponent} from "./components/createLoan/createLoan.component";
+import {SearchLoanComponent} from "./components/searchLoan/searchLoan.component";
+import {SearchLoanPaymentComponent} from "./components/searchLoanPayment/searchLoanPayment.component";
 
 const routes: Routes = [
   {
@@ -14,8 +15,16 @@ const routes: Routes = [
     component : HomeComponent
   },
   {
-    path : 'createLoan',
-    component : CreateLoanComponent
+    path : 'searchLoan',
+    component : SearchLoanComponent
+  },
+  {
+    path : 'loanPayment',
+    component : SearchLoanPaymentComponent
+  },
+  {
+    path : 'loanList',
+    component : SearchLoanPaymentComponent
   },
 ];
 

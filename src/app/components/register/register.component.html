@@ -13,7 +13,7 @@
     </div>
     <div class="buttons">
       <span routerLink="/register">Đăng kí tài khoản</span>
-      <span routerLink="/createLoan">Đăng kí khoản vay</span>
+      <span routerLink="/searchLoan">Đăng kí khoản vay</span>
       <span routerLink="/loanPayment">Thanh toán tiền lãi</span>
     </div>
     <div class="user">
@@ -31,62 +31,62 @@
       <div class="row">
         <div class="col-md-6 mb-4">
           <div class="form-group mb-3">
-            <label for="fullName">Họ và tên</label>
-            <input type="text" class="form-control"  placeholder="Nhập họ và tên" id="fullName" formControlName="fullName" required>
+            <label for="name">Họ và tên <span class="required">*</span></label>
+            <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nhập họ và tên" required>
           </div>
           <div class="form-group mb-3">
-            <label for="phoneNumber">Số điện thoại</label>
-            <input type="tel" class="form-control" placeholder="Nhập số điện thoại" id="phoneNumber" formControlName="phoneNumber" pattern="[0-9]{10}" required>
+            <label for="phone_number">Số điện thoại <span class="required">*</span></label>
+            <input type="tel" class="form-control" placeholder="Nhập số điện thoại" id="phone_number" formControlName="phone_number" pattern="[0-9]{10}" required>
           </div>
           <div class="form-group mb-3">
-            <label for="gender">Giới tính</label>
+            <label for="gender">Giới tính <span class="required">*</span></label>
             <select class="form-control" id="gender" formControlName="gender" required>
               <option value="" disabled selected>Chọn giới tính</option>
-              <option>Nam</option>
-              <option>Nữ</option>
+              <option value="0">Nam</option>
+              <option value="1">Nữ</option>
             </select>
           </div>
           <div class="form-group mb-3">
-            <label for="dob">Ngày sinh</label>
+            <label for="dob">Ngày sinh <span class="required">*</span></label>
             <input type="date" class="form-control" id="dob" formControlName="dob" required>
           </div>
           <div class="form-group mb-3">
-            <label for="identify">Số CMT/CCCD/Hộ chiếu</label>
+            <label for="identify">Số CMT/CCCD/Hộ chiếu <span class="required">*</span></label>
             <input type="number" class="form-control" placeholder="Nhập số CMT/CCCD/Hộ chiếu" id="identify" formControlName="identify" required>
           </div>
           <div class="form-group mb-3">
-            <label for="taxID">Mã số thuế</label>
-            <input type="text" class="form-control" placeholder="Nhập mã số thuế" id="taxID" formControlName="taxID" required>
+            <label for="tax_code">Mã số thuế</label>
+            <input type="text" class="form-control" placeholder="Nhập mã số thuế" id="tax_code" formControlName="tax_code">
           </div>
           <div class="form-group mb-3">
-            <label for="email">Email</label>
+            <label for="email">Email <span class="required">*</span></label>
             <input type="email" class="form-control" placeholder="Nhập địa chỉ email" id="email" formControlName="email" required>
           </div>
         </div>
         <div class="col-md-6 mg-4">
           <div class="form-group mb-3">
-            <label for="city">Tỉnh/TP trực thuộc TW</label>
+            <label for="city">Tỉnh/TP trực thuộc TW <span class="required">*</span></label>
             <input type="text" class="form-control" placeholder="Nhập tỉnh/TP" id="city" formControlName="city" required>
           </div>
           <div class="form-group mb-3">
-            <label for="province">Quận/Huyện/TP trực thuộc tỉnh</label>
+            <label for="province">Quận/Huyện/TP trực thuộc tỉnh <span class="required">*</span></label>
             <input type="text" class="form-control" placeholder="Nhập quận/huyện/TP" id="province" formControlName="province" required>
           </div>
           <div class="form-group mb-3">
-            <label for="district">Xã/Phường</label>
+            <label for="district">Xã/Phường <span class="required">*</span></label>
             <input type="text" class="form-control" placeholder="Nhập xã/phường" id="district" formControlName="district" required>
           </div>
           <div class="form-group mb-3">
-            <label for="permanentAddress">Địa chỉ thường trú</label>
-            <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="permanentAddress" formControlName="permanentAddress" required>
+            <label for="address">Địa chỉ thường trú <span class="required">*</span></label>
+            <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="address" formControlName="address" required>
           </div>
           <div class="form-group mb-3">
-            <label for="currentAddress">Nơi ở hiện tại</label>
+            <label for="currentAddress">Nơi ở hiện tại <span class="required">*</span></label>
             <input type="text" class="form-control" placeholder="Nhập nơi ở hiện tại" id="currentAddress" formControlName="currentAddress" required>
           </div>
           <div class="form-group mb-3">
-            <label for="job">Nghề nghiệp</label>
-            <select class="form-control" id="job" formControlName="job" required>
+            <label for="job">Nghề nghiệp </label>
+            <select class="form-control" id="job" formControlName="job" >
               <option value="" disabled selected>Chọn nghề nghiệp</option>
               <option value="Học sinh">Học sinh</option>
               <option value="Sinh viên">Sinh viên</option>

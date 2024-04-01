@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -23,7 +22,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "types": ["jquery"] // Thêm dòng này để TypeScript nhận dạng jQuery
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
