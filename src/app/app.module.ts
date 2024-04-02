@@ -11,10 +11,13 @@ import { AppComponent } from './app.component';
 import {RegisterComponent} from "./components/register/register.component";
 import {HomeComponent} from "./components/home/home.component";
 import {DropdownModule} from "primeng/dropdown";
-import {SearchLoanComponent} from "./components/searchLoan/searchLoan.component";
+import {SearchLoanComponent} from "./components/tìm kiếm trang tạo khoản vay/searchLoan.component";
 import {TableModule} from "primeng/table";
 import {ButtonModule} from "primeng/button";
-import {SearchLoanPaymentComponent} from "./components/searchLoanPayment/searchLoanPayment.component";
+import {SearchLoanPaymentComponent} from "./components/tìm kiếm trang thanh toán/searchLoanPayment.component";
+import {CreateLoanComponent} from "./components/createLoan/createLoan.component";
+import {RouterModule} from "@angular/router";
+import {ListLoanComponent} from "./components/listLoan/listLoan.component";
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import {SearchLoanPaymentComponent} from "./components/searchLoanPayment/searchL
     HomeComponent,
     SearchLoanComponent,
     SearchLoanPaymentComponent,
+    CreateLoanComponent,
+    ListLoanComponent
     // LoanListComponent
   ],
   imports: [
@@ -36,6 +41,7 @@ import {SearchLoanPaymentComponent} from "./components/searchLoanPayment/searchL
     DropdownModule,
     TableModule,
     ButtonModule,
+    RouterModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

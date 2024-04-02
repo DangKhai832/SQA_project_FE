@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {AuthService} from "../../services/auth.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createLoan',
@@ -11,8 +12,10 @@ import {AuthService} from "../../services/auth.service";
 
 export class SearchLoanComponent implements OnInit {
   customers: any[] = [];
+  keySearch : any
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,
+              private router : Router) {}
 
   ngOnInit(): void {
     // Gọi API khi component được khởi tạo
@@ -20,7 +23,8 @@ export class SearchLoanComponent implements OnInit {
   }
 
   fetchCustomers() {
-    this.authService.searchCustomer("").subscribe(
+    var key = this.keySearch ? this.keySearch : ""
+    this.authService.searchCustomer(key).subscribe(
       (res: any) => { // Sửa kiểu dữ liệu thành any hoặc kiểu dữ liệu chính xác của đối tượng trả về từ API
         this.customers = res.data; // Gán phản hồi từ API vào biến customers
       },
@@ -28,5 +32,9 @@ export class SearchLoanComponent implements OnInit {
         console.error('Error fetching customers:', error);
       }
     );
+  }
+
+  openPopupCreateLoan(id: number) {
+    this.router.navigate(['/createLoan/', id]);
   }
 }

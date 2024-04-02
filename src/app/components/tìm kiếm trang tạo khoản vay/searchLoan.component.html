@@ -9,7 +9,7 @@
 <div class="background">
   <header class="header-container">
     <div class="logo">
-      <img class="text-primary" src="src/app/image">
+<!--      <img class="text-primary" src="src/app/image">-->
     </div>
     <div class="buttons">
       <span routerLink="/register">Đăng kí tài khoản</span>
@@ -20,14 +20,14 @@
       <button class="logout-button p-button p-button-icon-only">
         <i class="pi pi-power-off" style="font-size: 40px !important;"></i>
       </button>
-      <img src="app/image/logo.jpg" alt="Avatar" class="avatar">
+<!--      <img src="app/image/logo.jpg" alt="Avatar" class="avatar">-->
     </div>
   </header>
 
   <h2 class="text-center">Tìm kiếm tài khoản khách hàng</h2>
   <div class="search-bar">
-    <input type="text" placeholder="Nhập tên khách hàng...">
-    <button class="search-button btn btn-danger">Tìm kiếm</button>
+    <input type="text" [(ngModel)]="keySearch" placeholder="Nhập tên khách hàng...">
+    <button class="search-button btn btn-danger" (click)="fetchCustomers()" (keyup.enter)="fetchCustomers()">Tìm kiếm</button>
   </div>
 
 
@@ -57,7 +57,9 @@
                 <i class="pi pi-eye" style="margin-right: 5px;"></i>
                 View
               </button>
-              <button pButton type="button" label="Tạo khoản vay"></button>
+              <button pButton type="button" (click)="openPopupCreateLoan(customer.id)">
+                Tạo khoản vay
+              </button>
             </td>
           </tr>
           </tbody>

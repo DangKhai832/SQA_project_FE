@@ -38,4 +38,8 @@ export class SearchLoanPaymentComponent implements OnInit {
     debugger
     this.router.navigate(['/loanList/'+customerId]);
   }
+
+  openListLoan(id : number) {
+    this.router.navigate(['/listLoan/', id]);
+  }
 }

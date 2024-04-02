@@ -36,4 +36,15 @@ export class AuthService {
     ;
   }
 
+  getInformationCustomer(customerId: number) {
+    return this.http.get(this.baseServerUrl + "customer/"+ customerId, {responseType : "json"})
+  }
+
+  createLoan(body: any) {
+    return this.http.post(this.baseServerUrl + "loan/create", body, {responseType : "json"})
+  }
+
+  getListLoan(customerId: any) {
+    return this.http.get(this.baseServerUrl + "loan/all/"+ customerId, {responseType : "json"})
+  }
 }

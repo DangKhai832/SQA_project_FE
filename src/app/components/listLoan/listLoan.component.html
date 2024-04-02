@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng kí tài khoản</title>
+</head>
+<body>
+<div class="background">
+  <header class="header-container">
+    <div class="logo">
+      <!-- <img src="src/app/image" alt="Logo"> -->
+    </div>
+    <div class="buttons">
+      <span routerLink="/register">Đăng kí tài khoản</span>
+      <span routerLink="/searchLoan">Đăng kí khoản vay</span>
+      <span routerLink="/loanPayment">Thanh toán tiền lãi</span>
+    </div>
+    <div class="user">
+      <button class="logout-button p-button p-button-icon-only">
+        <i class="pi pi-power-off" style="font-size: 40px;"></i>
+      </button>
+      <!-- <img src="app/image/logo.jpg" alt="Avatar" class="avatar"> -->
+    </div>
+  </header>
+  <div class="container">
+    <div class="row justify-content-center personal-info">
+      <h1 class="text-center">Thông tin cá nhân</h1>
+      <div class="col-md-3">
+        <p><strong>Tên:</strong> {{ customerInfo.fullName }}</p>
+      </div>
+      <div class="col-md-5">
+        <p><strong>Email:</strong> {{ customerInfo.email }}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Ngày sinh:</strong> {{ customerInfo.dob | date :'dd/MM/yyyy' }}</p>
+      </div>
+      <div class="col-md-3">
+        <p><strong>Giới tính:</strong> {{ customerInfo.gender == 1 ? "Nữ" : "Nam" }}</p>
+      </div>
+      <div class="col-md-5">
+        <p><strong>Số điện thoại:</strong> {{ customerInfo.phoneNumber }}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Địa chỉ:</strong> {{ customerInfo.district }}, {{ customerInfo.province }}, {{ customerInfo.city }}</p>
+      </div>
+    </div>
+    <h1 class="text-center">Danh sách khoản vay</h1>
+    <div class="p-grid p-justify-center">
+      <div class="p-col-10">
+        <div class="table-container">
+          <table class="custom-table">
+            <!-- Header của bảng -->
+            <thead>
+            <tr>
+              <th style="text-align: center;">Mã khoản vay</th>
+              <th style="text-align: center;">Mã khách hàng</th>
+              <th style="text-align: center;">Ngày giải ngân</th>
+              <th style="text-align: center;">Số tiền còn nợ</th>
+              <th style="text-align: center;">Action</th>
+            </tr>
+            </thead>
+            <!-- Body của bảng -->
+            <tbody>
+            <tr *ngFor="let loan of listLoan">
+              <td style="text-align: center;">{{loan.id}}</td>
+              <td>{{loan.customerId}}</td>
+              <td style="text-align: center;">{{ loan.startDate | date :'dd/MM/yyyy' }}</td>
+              <td style="text-align: center">
+                <button pButton type="button">
+                  Thanh toán khoản vay
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
