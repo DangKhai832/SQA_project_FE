@@ -35,7 +35,6 @@ export class ListLoanComponent implements OnInit {
     this.authService.getListLoan(this.customerId).subscribe(
       (res: any) => {
         if(res.data.length != 0) {
-          debugger
           this.listLoan = res.data;
         } else {
           this.toastr.error("Không có khoản vay nào của tài khoản này!")

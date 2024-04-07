@@ -62,7 +62,7 @@ body {
 }
 
 .logout-button {
-  background-color: #f9e3e4; /* Màu nền hồng nhạt */
+  background-color: rgba(253, 149, 173, 0.01);
   border: none;
   cursor: pointer;
   border-radius: 4px;
