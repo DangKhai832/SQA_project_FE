@@ -56,7 +56,7 @@
               <th style="text-align: center;">Mã khoản vay</th>
               <th style="text-align: center;">Mã khách hàng</th>
               <th style="text-align: center;">Ngày giải ngân</th>
-              <th style="text-align: center;">Số tiền còn nợ</th>
+              <th style="text-align: center;">Số tiền vay ban đầu</th>
               <th style="text-align: center;">Action</th>
             </tr>
             </thead>
@@ -64,8 +64,9 @@
             <tbody>
             <tr *ngFor="let loan of listLoan">
               <td style="text-align: center;">{{loan.id}}</td>
-              <td>{{loan.customerId}}</td>
+              <td style="text-align: center;" >{{loan.customerId}}</td>
               <td style="text-align: center;">{{ loan.startDate | date :'dd/MM/yyyy' }}</td>
+              <td style="text-align: center;">{{ loan.amount }}</td>
               <td style="text-align: center">
                 <button pButton type="button">
                   Thanh toán khoản vay

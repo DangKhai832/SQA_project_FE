@@ -26,8 +26,8 @@
 
   <h2 class="text-center">Tìm kiếm tài khoản khách hàng</h2>
   <div class="search-bar">
-    <input type="text" placeholder="Nhập tên khách hàng...">
-    <button class="search-button btn btn-danger">Tìm kiếm</button>
+    <input type="text" [(ngModel)]="keySearch" (keyup.enter)="fetchCustomers()" placeholder="Nhập tên khách hàng...">
+    <button class="search-button btn btn-danger" (click)="fetchCustomers()" >Tìm kiếm</button>
   </div>
 
 

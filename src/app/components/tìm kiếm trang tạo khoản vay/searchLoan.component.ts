@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class SearchLoanComponent implements OnInit {
   customers: any[] = [];
-  keySearch : any
+  keySearch : any;
 
   constructor(private authService: AuthService,
               private router : Router) {}

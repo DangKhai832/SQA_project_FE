@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 
 export class SearchLoanPaymentComponent implements OnInit {
   customers: any[] = [];
+  keySearch : any;
 
   constructor(
     private authService: AuthService,
@@ -24,7 +25,8 @@ export class SearchLoanPaymentComponent implements OnInit {
   }
 
   fetchCustomers() {
-    this.authService.searchCustomer("").subscribe(
+    var key = this.keySearch ? this.keySearch : ""
+    this.authService.searchCustomer(key).subscribe(
       (res: any) => { // Sửa kiểu dữ liệu thành any hoặc kiểu dữ liệu chính xác của đối tượng trả về từ API
         this.customers = res.data; // Gán phản hồi từ API vào biến customers
       },
